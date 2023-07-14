@@ -1,0 +1,45 @@
+배열
+var exams_scores : Int = 100,90,97
+-배열은 저장될 수 있는 값의 갯수를 정해놓아야한다. 갯수는 변경불가!!
+
+1. 배열 선언하는 방법
+-arrayOf<자료형/생략>(값1,값2,값3,...)
+    -생략 했을 경우 복수개의 자료형이 배열 인자로 올 수 있음
+    -var array1 = arrayOf(true,false,"안녕하세요",10,2.2)
+
+-자료형을 적어 줬을 경우는 해당 자료형만 인자로 들어올 수 있음
+    -var array2 = arrayOf<Int>(10,20,30)
+    -var array3 = arrayOf<String>("ㅇㅇ","ㄹㄹ","ㄹㅇ")
+
+-<자료형>을 대체할 수 있는 방법
+    -var array4 = intArrayOf(10,20,30)
+    -var array5 = doubleArrayOf(5.5,6.4,4.3)
+
+-null을 인자로 받는 배열
+    -var nulls = arrayOfNulls(null,null)  //참고만 하자
+
+2. 배열을 선언하는 방법(2)
+-자료형/생략 Array(크기,{값/생략가능})
+    -var array6 = Array(10,{0}) -> 10칸 배열 생성 기본값 0 대입
+
+-자료형 명시
+    -var array7 = IntArray(10,{0})
+    StringArray는 없다. 불가능
+
+3.배열을 선언하는 방법(3)   --이게 제일 많이 사용됨--
+-Array<자료형>(크기,{값/생략가능})
+    -var array10 = Array(10,{0}) ->값 생략할경우 디폴트 값의 자료형으로 정해짐
+    -var array11 = Array<Int>(10,{0}) 위와 동일
+    -var array12 = Array<String>(10,{"Hi"})
+
+4.배열에 값을 넣는 방법
+-1번 방법 -> 배열명[index] = 값
+    array12[0] = 10
+-2번 방법 -> 배열명.set(index,값) 자바 map  put, get 시스템인듯
+    array12.set(0,10)
+
+5.배열에 있는 값을 가져오는 방법
+-배열명[index]
+    val value = array12[0]
+-배열명.get[index]
+    val value = array12.get[0]

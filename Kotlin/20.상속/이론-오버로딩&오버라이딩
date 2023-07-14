@@ -1,0 +1,37 @@
+오버라이딩(Overriding)
+- 슈퍼클래스가 사용하고 있는 멤버와 동일한 이름 멤버 작성 불가!!
+    -오버라이딩을 통해서 슈퍼클래스에서 가지고 있는 함수를 재정의 할 수 있다.
+    - 재정의를 할 때는 함수 앞에 override 키워드를 적어 준다.
+- 재정의
+    - 재선언과 동일하다
+    - 이전에 정의한 것을 번복하고 새롭게 정의하겠다
+        - 번복 -> 이전에 정의한 것은 작동하지 않는다
+    - 이전것을 덮어 쓴다
+
+open class Warrior1(var name: String, var power: Int, var type: String) {  //부모클래스, 슈퍼클래스
+    fun attack() {
+        println("복잡한 코드 + 공격")
+    }
+}
+
+class DefenseWarrior1 constructor(name: String, power: Int) :
+    Warrior1(name, power, "고블린") {
+    fun defense() {
+        println("방어")
+    }
+    override fun attack(){
+        //override로 슈퍼 클래스가 가지고 있는 함수를 재정의 할 수 있다.
+        println("간단한 코드 + 공격")
+    }
+}
+
+오버로딩(Overloading)
+- 동일한 함수를 복수개 만드는것 불가능
+    - 복수개 있는 경우 사용자가 어떤걸 사용하기를 원하는지 모른다
+- 동일한 이름의 함수를 만들되, 매개변수의 타입이나 갯수가 다르다면 가능하다.(Overloading 조건 리턴타입은 달라도 의미없다.)
+    - 함수가 받는 인자가 다른 경우
+    fun sum(a:Int, b: Int):Int { return a+b }
+    fun sum(a:Int):Int { return a+10 }
+
+        sum(10,20)
+        sum(10)

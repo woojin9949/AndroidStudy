@@ -1,0 +1,23 @@
+리소스(Resource)
+- drawable
+    - 이미지
+        - 실제 이미지 파일, xml
+        - 동일한 이미지는 해상도 별로 여러장 가능(mipmap- ic_launcher hdpi,mdpi,xhdpi,xxhdpi,xxxhdpi)
+            - 휴대폰의 해상도에 맞는 이미지 사용
+            - 안드로이드 OS가 해상도에 적합 이미지를 자동선택
+- layout
+    - 화면을 구성하는 xml
+- mipmap
+    - 앱 아이콘
+- values
+    - Colors
+        - 색
+        - RGB(Red, Green, Blue)
+        - 16진수
+        - 10A 11B 12C 13D 14E 15F
+        - ex) #FF aa bb cc
+             투명도/R/G/B
+    - String
+        - 문자열
+- 사용방법
+    -@리소스종류/리소스명

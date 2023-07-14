@@ -1,0 +1,9 @@
+While
+-while(조건){
+    내용
+}
+
+Do/While
+- do{
+    내용
+ }while(조건)
