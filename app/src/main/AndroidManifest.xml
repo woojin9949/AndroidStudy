@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".MasterApplication"
         android:allowBackup="true"
@@ -16,6 +17,13 @@
         android:theme="@style/Theme.FastCampusAndroid"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".YoutubeItemActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".PermissionActivity"
+            android:exported="false" />
         <activity
             android:name=".RetrofitActivity"
             android:exported="false" />
@@ -47,7 +55,7 @@
             android:name=".ListViewActivity"
             android:exported="false" />
         <activity
-            android:name=".PermissionActivity"
+            android:name=".YoutubeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
