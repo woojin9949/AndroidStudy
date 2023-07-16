@@ -18,6 +18,10 @@ class YoutubeItem(
     val id: Int, val title: String, val content: String, val video: String, val thumbnail: String
 )
 
+class MelonItem(
+    val id: Int, val title: String, val song: String, val thumbnail: String
+)
+
 interface RetrofitService {
     @GET("json/students") //이 요청에 대해선 형태 변환하겠다란뜻
     fun getStudentList(): Call<ArrayList<StudentFromServer>>
@@ -34,4 +38,7 @@ interface RetrofitService {
 
     @GET("youtube/list/")
     fun getYoutubeItemList(): Call<ArrayList<YoutubeItem>>
+
+    @GET("melon/list/")
+    fun getMelonItemList(): Call<ArrayList<MelonItem>>
 }

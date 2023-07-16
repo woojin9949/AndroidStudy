@@ -18,6 +18,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".MelonDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".YoutubeActivity"
+            android:exported="false" />
+        <activity
             android:name=".YoutubeItemActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
@@ -55,7 +61,7 @@
             android:name=".ListViewActivity"
             android:exported="false" />
         <activity
-            android:name=".YoutubeActivity"
+            android:name=".MelonActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
