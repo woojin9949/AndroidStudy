@@ -4,6 +4,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import java.io.Serializable
 
 class StudentFromServer(
     val id: Int,
@@ -20,7 +21,7 @@ class YoutubeItem(
 
 class MelonItem(
     val id: Int, val title: String, val song: String, val thumbnail: String
-)
+) : Serializable
 
 interface RetrofitService {
     @GET("json/students") //이 요청에 대해선 형태 변환하겠다란뜻

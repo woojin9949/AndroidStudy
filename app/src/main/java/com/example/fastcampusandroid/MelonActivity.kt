@@ -1,6 +1,7 @@
 package com.example.fastcampusandroid
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.Serializable
 
 class MelonActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +68,13 @@ class MelonItemRecyclerAdapter(
             title = itemView.findViewById(R.id.title)
             thumbnail = itemView.findViewById(R.id.thumbnail)
             play = itemView.findViewById(R.id.play)
+
+            play.setOnClickListener {
+                val intent = Intent(context, MelonDetailActivity::class.java)
+                intent.putExtra("melon_item_list", melonItemList as Serializable)
+                intent.putExtra("position", adapterPosition)
+                context.startActivity(intent)
+            }
         }
     }
 
