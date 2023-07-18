@@ -28,6 +28,7 @@ class MelonActivity : AppCompatActivity() {
             .baseUrl("http://mellowcode.org/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
         val retrofitService = retrofit.create(RetrofitService::class.java)
         retrofitService.getMelonItemList().enqueue(object : Callback<ArrayList<MelonItem>> {
             override fun onResponse(

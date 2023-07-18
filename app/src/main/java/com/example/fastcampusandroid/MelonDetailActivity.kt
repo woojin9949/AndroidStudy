@@ -38,9 +38,8 @@ class MelonDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_melon_detail)
-        melonItemList = intent.serializable<ArrayList<MelonItem>>("melon_item_list")!!
+        melonItemList = intent.serializable("melon_item_list")!!
         position = intent.getIntExtra("position", 0)
-        Log.d("melonn", "" + position)
         playMelonItem(melonItemList.get(position))
         changeThumbnail(melonItemList.get(position))
 
@@ -59,14 +58,12 @@ class MelonDetailActivity : AppCompatActivity() {
             position -= 1
             playMelonItem(melonItemList.get(position))
             changeThumbnail(melonItemList.get(position))
-            Log.d("melonn", "back" + position)
         }
         findViewById<ImageView>(R.id.next).setOnClickListener {
             mediaPlayer.stop()
             position += 1
             playMelonItem(melonItemList.get(position))
             changeThumbnail(melonItemList.get(position))
-            Log.d("melonn", "next" + position)
         }
     }
 
