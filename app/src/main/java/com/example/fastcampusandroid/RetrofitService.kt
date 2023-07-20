@@ -1,11 +1,18 @@
 package com.example.fastcampusandroid
 
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.FieldMap
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
+import retrofit2.http.HeaderMap
+import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Part
+import retrofit2.http.Path
 import java.io.Serializable
 
 class StudentFromServer(
@@ -28,7 +35,54 @@ class InstaUser(
     val token: String
 )
 
+//id를 통해 각 게시물에 대해 좋아요 구현을 위함
+class InstaPost(
+    val id: Int, val content: String, val image: String, val owner_profile: OwnerProfile
+)
+
+class OwnerProfile(
+    val username: String, val image: String?
+)
+
+class userInfo(
+    val id: Int,
+    val username: String,
+    val profile: OwnerProfile
+)
+
 interface RetrofitService {
+
+    @Multipart
+    @PUT("user/profile/{user_id}/")
+    fun changeProfile(
+        @Path("user_id") userId: Int,
+        @HeaderMap headers: Map<String, String>,
+        @Part image: MultipartBody.Part,
+        @Part("user") user: RequestBody
+    ): Call<Any>
+
+    @GET("user/userInfo/")
+    fun getUserInfo(
+        @HeaderMap headers: Map<String, String>
+    ): Call<userInfo>
+
+    @Multipart //이미지 보낼때 사용
+    @POST("instagram/post/")
+    fun uploadPost(
+        @HeaderMap headers: Map<String, String>,
+        @Part image: MultipartBody.Part,
+        @Part("content") content: RequestBody
+    ): Call<Any>
+
+    @POST("instagram/post/like/{post_id}")
+    fun postLike(
+        @Path("post_id") post_id: Int
+    ): Call<Any>
+
+    //서버에 있는 post 리스트 다 가져오기
+    @GET("instagram/post/list/all/")
+    fun getInstagramPosts(): Call<ArrayList<InstaPost>>
+
     @POST("user/signup/")
     @FormUrlEncoded
     fun instaJoin(

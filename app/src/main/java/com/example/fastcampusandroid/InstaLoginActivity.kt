@@ -51,6 +51,7 @@ class InstaLoginActivity : AppCompatActivity() {
                         editor.putString("user_id", instaUser.id.toString())
                         editor.commit()
                         Log.d("testt", "로그인 성공:" + instaUser.token)
+                        Log.d("testt", "로그인 성공:" + instaUser.id)
                         startActivity(Intent(this@InstaLoginActivity,InstaMainActivity::class.java))
                     } else {
                         when (response.code()) {
