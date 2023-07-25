@@ -20,6 +20,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".TodoWriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InstaSplashActivity"
+            android:exported="false" />
+        <activity
             android:name=".InstaChangeProfileActivity"
             android:exported="false" />
         <activity
@@ -78,9 +84,8 @@
             android:name=".ListViewActivity"
             android:exported="false" />
         <activity
-            android:name=".InstaSplashActivity"
-            android:exported="true"
-            android:noHistory="true">
+            android:name=".TodoActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,5 +1,6 @@
 package com.example.fastcampusandroid
 
+import okhttp3.Headers
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -13,6 +14,7 @@ import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Part
 import retrofit2.http.Path
+import retrofit2.http.Query
 import java.io.Serializable
 
 class StudentFromServer(
@@ -50,7 +52,38 @@ class userInfo(
     val profile: OwnerProfile
 )
 
+class ToDo(
+    val id: Int,
+    val content: String,
+    val is_complete: Boolean,
+    val created: String
+)
+
 interface RetrofitService {
+
+    @GET("to-do/search/")
+    fun searchToDoList(
+        @HeaderMap headers: Map<String, String>,
+        @Query("keyword") keyword: String
+    ): Call<ArrayList<ToDo>>
+
+    @PUT("to-do/complete/{todoId}")
+    fun changeToDoComplete(
+        @HeaderMap headers: Map<String, String>,
+        @Path("todoId") todoId: Int
+    ): Call<Any>
+
+    @GET("to-do/")
+    fun getTodoList(
+        @HeaderMap headers: Map<String, String>
+    ): Call<ArrayList<ToDo>>
+
+    @POST("to-do/")
+    @FormUrlEncoded
+    fun makeTodo(
+        @HeaderMap headers: Map<String, String>,
+        @FieldMap params: HashMap<String, Any>
+    ): Call<Any>
 
     @Multipart
     @PUT("user/profile/{user_id}/")
